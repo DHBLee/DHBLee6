@@ -1,0 +1,231 @@
+@import "tailwindcss";
+@layer theme, base, components, utilities;
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
+
+
+@layer theme {
+  :root {
+    --clr-neutral0: hsl(194, 78%, 11%);
+    --clr-neutral100: hsl(17, 41%, 97%);
+    --clr-neutral200: hsl(17, 12%, 89%);
+    --clr-neutral700: hsl(195, 23%, 28%);
+    --clr-neutral900: hsl(194, 78%, 11%);
+
+    --clr-salmon50: hsl(23, 100%, 97%);
+    --clr-salmon100: hsl(22, 100%, 91%);
+    --clr-salmon500: hsl(22, 99%, 72%);
+
+    --clr-gradient: linear-gradient(90, #FFE2D2 0%, #FFF5EF 100%);
+    --clr-textGradient: linear-gradient(107deg, #FF9A60 -11.37%, #062630 61.84%);
+  
+    --ff: 'Martian Mono', monospace;
+    --ff1: 'Inter', sans-serif;
+  }
+}
+
+@layer base {
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      height: 100vh;
+    }
+
+    body {
+      min-height: 100vh;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+      display: block;
+      max-width: 100%;
+      user-select: none;
+    }
+
+    svg {
+      margin: 0;
+      padding: 0;
+      overflow: visible;
+    }
+
+    button {
+      border: none;
+      padding: 0;
+      margin: 0;
+      background-color: inherit;
+      cursor: pointer;
+      font-size: inherit;
+      font-family: inherit;
+    }
+
+
+    span,
+    h1, h2, h3, h4, h5, h6,
+    p {
+      display: inline-block;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    input {
+      font-size: inherit;
+      border: none;
+      font-family: inherit;
+      background-color: inherit;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    textarea {
+      font-size: inherit;
+      border: none;
+      font-family: inherit;
+      line-height: 1.5;
+      background-color: inherit;
+    }
+
+    textarea:focus {
+      outline: none;
+    }
+
+    fieldset {
+      border: none;
+    }
+}
+
+@layer components {
+  
+  .textpreset1 {
+    font-family: var(--ff);
+    font-weight: 700;
+    font-size: 62px;
+    letter-spacing: -2px;
+    line-height: 120%;
+  } 
+
+  .textpreset1-mobile {
+    font-family: var(--ff);
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: -2px;
+    line-height: 130%;
+  }
+
+  .textpreset2 {
+    font-family: var(--ff);
+    font-weight: 600;
+    font-size: 50px;
+    letter-spacing: -2px;
+    line-height: 130%;
+  }
+
+  .textpreset2-mobile {
+    font-family: var(--ff);
+    font-weight: 700;
+    font-size: 34px;
+    letter-spacing: -2px;
+    line-height: 130%;
+  }
+
+  .textpreset3 {
+    font-family: var(--ff);
+    font-weight: 600;
+    font-size: 34px;
+    letter-spacing: -1px;
+    line-height: 130%;
+  }
+
+  .textpreset3-mobile {
+    font-family: var(--ff);
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -1px;
+    line-height: 110%;
+  }
+
+  .textpreset4 {
+    font-family: var(--ff);
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -1px;
+    line-height: 110%;
+  }
+
+  .textpreset4-regular {
+    font-family: var(--ff);
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: -1px;
+    line-height: 110%;
+  }
+
+  .textpreset5 {
+    font-family: var(--ff1);
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    line-height: 140%;
+  }
+
+  .textpreset5-semibold {
+    font-family: var(--ff1);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    line-height: 140%;
+  }
+
+  .textpreset6 {
+    font-family: var(--ff);
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -1px;
+    line-height: 130%;
+  }
+
+  .textpreset6-mobile {
+    font-family: var(--ff);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -1px;
+    line-height: 130%;
+  }
+
+  .textpreset7 {
+    font-family: var(--ff);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -1px;
+    line-height: 120%;
+  }
+
+}
