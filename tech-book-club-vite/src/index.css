@@ -120,6 +120,15 @@
     fieldset {
       border: none;
     }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .check::before {
+      content: url('./assets/icon-check.svg');
+    }
 }
 
 @layer components {
@@ -142,11 +151,13 @@
 
   .textpreset2 {
     font-family: var(--ff);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 50px;
     letter-spacing: -2px;
     line-height: 130%;
   }
+
+  
 
   .textpreset2-mobile {
     font-family: var(--ff);
@@ -226,6 +237,21 @@
     font-size: 14px;
     letter-spacing: -1px;
     line-height: 120%;
+  }
+
+  @media (min-width:768px) {
+    .textpreset1 {
+      font-size: 62px;
+    }
+    .textpreset2 {
+      font-size: 50px;
+    }
+    .textpreset3 {
+      font-size: 34px;
+    }
+    .textpreset6 {
+      font-size: 18px;
+    }
   }
 
 }
