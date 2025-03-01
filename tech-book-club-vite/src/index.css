@@ -15,7 +15,7 @@
     --clr-salmon100: hsl(22, 100%, 91%);
     --clr-salmon500: hsl(22, 99%, 72%);
 
-    --clr-gradient: linear-gradient(90, #FFE2D2 0%, #FFF5EF 100%);
+    --clr-gradient: linear-gradient(90, #FFE2D2 50%, #FFF5EF 100%);
     --clr-textGradient: linear-gradient(107deg, #FF9A60 -11.37%, #062630 61.84%);
   
     --ff: 'Martian Mono', monospace;
@@ -253,5 +253,13 @@
       font-size: 18px;
     }
   }
+
+  @media(min-width: 1440px) {
+    .pro-transform {
+      transform: scale(1.08);
+    }
+  }
+
+
 
 }

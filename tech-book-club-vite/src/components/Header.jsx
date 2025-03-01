@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useEffect, useState } from 'react'
 
 import headerLogo from '../assets/logo.svg';
 import headerBg from '../assets/pattern-light-bg.svg';
@@ -13,9 +13,32 @@ import Button from './Button';
 const headingSubtitle = "Turn your reading time into learning time with fellow tech enthusiasts. Get curated recommendations, join vibrant discussions, and level up your skills one chapter at a time.";
 
 const Header = () => {
+  const [gradient, setGradient] = useState(
+    'linear-gradient(to bottom, hsla(17, 41%, 97%, 0.3) 70%, hsla(17, 41%, 97%, 1))'
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setGradient(
+          'linear-gradient(to bottom right, hsla(17, 41%, 97%, 0.3) 50%, rgba(156, 201, 218, 0.3))'
+        );
+      } else {
+        setGradient(
+          'linear-gradient(to bottom, hsla(17, 41%, 97%, 0.3) 70%, hsla(17, 41%, 97%, 1))'
+        );
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <header className='bg-cover bg-center- bg-no-repeat pt-6 px-4 md:px-8 [@media_(min-width:1440px)]:px-[135px] pb-20' style={{ backgroundImage: `linear-gradient(to bottom, hsla(17, 41%, 97%, 0.3) 70%, hsla(17, 41%, 97%, 1)), url(${headerBg})` }}>
+    <header className='bg-cover bg-center- bg-no-repeat pt-6 px-4 md:px-8 [@media_(min-width:1440px)]:px-[135px] pb-20' style={{ backgroundImage: `${gradient}, url(${headerBg})` }}>
         <img src={headerLogo} alt="" className='mb-12 md:mb-16 [@media_(min-width:1440px)]:mb-[80px] '/>
         <div className='flex flex-col [@media_(min-width:1440px)]:flex-row gap-16 [@media_(min-width:1440px)]:items-center'>
 

@@ -19,8 +19,8 @@ const Footer = () => {
       <div className='flex flex-col items-center justify-center md:flex-row md:justify-between gap-4 py-6 border-t-2 border-solid border-[#395159]'>
           <p className='textpreset7 text-[var(--clr-neutral100)]'>@ 2024 - Tech Book Club</p>
           <ul className='flex gap-6'>
-            <li><img src={blueSky} alt="" /></li>
-            <li><img src={linkedIn} alt="" /></li>
+            <li><img src={blueSky} alt="" className='hover:opacity-65 cursor-pointer'/></li>
+            <li><img src={linkedIn} alt="" className='hover:opacity-65 cursor-pointer' /></li>
           </ul>
       </div>
     </footer>

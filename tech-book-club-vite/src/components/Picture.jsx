@@ -8,7 +8,7 @@ const Picture = ({mobileImage, tabletImage, desktopImage}) => {
 
             <source srcSet={tabletImage} media='(min-width: 768px)' className='rounded-lg'/>
 
-            <img src={desktopImage} alt="" className='rounded-3xl'/>
+            <img src={desktopImage} alt="" className='rounded-xl'/>
         </picture>
     </div>
   )

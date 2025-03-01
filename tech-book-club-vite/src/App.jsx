@@ -26,7 +26,7 @@ function App() {
 
           <Section1 mobileImage={readTogetherImageMobile} tabletImage={readTogetherImageTablet} desktopImage={readTogetherImageDesktop} title="Read together, grow together" identifier="read" h2Style={h2Styling}/>
 
-          <Section1 mobileImage={notAverageImageMobile} tabletImage={notAverageImageTablet} desktopImage={notAverageImageDesktop} title="Not your average book club" identifier="average" h2Style={h2Styling}/>
+          <Section1 mobileImage={notAverageImageMobile} tabletImage={notAverageImageTablet} desktopImage={notAverageImageDesktop} title="Not your average book" identifier="average" h2Style={h2Styling}/>
 
           <Section2 h2Style={h2Styling}/>
 
