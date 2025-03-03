@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Space Grotesk', sans-serif;
+  src: url('./assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('./assets/fonts/static/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('./assets/fonts/static/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500; 
+  font-style: normal;
+}
+
+
+@theme {
+  --color-Black: hsl(0, 0%, 8%);
+  --color-Green: hsl(153, 71%, 59%);
+  --color-Darkgrey: hsl(0, 0%, 14%);
+  --color-Grey: hsl(0, 0%, 85%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --text-xl: 5.5rem;
+  --text-l: 3rem;
+  --text-m: 1.5rem;
+  --text-p: 1.125rem;
+
+  --font-SpaceGrotesk: 'Space Grotesk', sans-serif;
+  
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+
+  --breakpoint-1440: 90rem;
+
+  --tracking-xl: -2.5px;
+  --tracking-l: -1.5px;
+  
+  --leading-xl: 88px;
+  --leading-l: 56px;
+  --leading-m: 32px;
+  --leading-p: 28px;
+
+}
+
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    height: 100vh;
+  }
+
+  body {
+    min-height: 100vh;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
+  }
+
+  svg {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+
+  span,
+  h1, h2, h3, h4, h5, h6,
+  p {
+    display: inline-block;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  input {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  textarea {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    line-height: 1.5;
+    background-color: inherit;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+  .check {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .check::before {
+    content: url('./assets/icon-check.svg');
+  }
+}
+
+
+@layer components {
+  .icon {
+    transition: filter 0.3s ease;
+  }
+  .icon:hover {
+    filter: invert(85%) sepia(49%) saturate(748%) hue-rotate(91deg) brightness(99%) contrast(89%);
+  }
+}
