@@ -67,9 +67,9 @@ const Main = ({ringsPattern, pxStyling}) => {
   return (
     <main>
         {/* need to figueer out the overflowing issue in the rings */}
-        <section className={`${pxStyling} relative border-t-2 border-b-2 md:border-b-0  py-10 md:py-0 md:pt-[52px] 1440:pt-[72px] grid gap-6 md:gap-[52px] 1440px:gap-[58px] text-center md:text-left justify-center md:justify-start grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] 1440:grid-cols-[repeat(3,1fr)] overflow-x-hidden overflow-y-visible `}>
+        <section className={`${pxStyling} relative border-t-2 border-b-2 md:border-b-0  py-10 md:py-0 md:pt-[52px] 1440:pt-[72px] grid gap-6 md:gap-[52px] 1440px:gap-[58px] text-center md:text-left justify-center md:justify-start grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] 1440:grid-cols-[repeat(3,1fr)]`}>
             {experiences.map(experience => (
-                <div className='grid gap-[1px] md:gap-3.5'>
+                <div key={experience.name} className='grid gap-[1px] md:gap-3.5'>
                     <h3 className='text-[32px] md:text-l max-md:leading-[40px]'>{experience.name}</h3>
                     <p className='text-[1rem] md:text-p max-md:leading-[26px] text-Grey'>{experience.exp}</p>
                 </div>
@@ -85,9 +85,9 @@ const Main = ({ringsPattern, pxStyling}) => {
                 </Link>
             </div>
 
-            <div className='grid gap-10'> {/* need to figure out the difference in spacing */}
+            <div className='grid gap-10 md:grid-cols-[repeat(2,1fr)] md:gap-x-6 md:gap-y-[60px] 1440:gap-x-[30px] 1440:gap-y-[69px]'> {/* need to figure out the difference in spacing */}
                 {projectThumbnailsAndInfo.map(project => (
-                    <Projects smallImg={project.small} largeImg={project.large} title={project.title} languages={project.languages}/>
+                    <Projects key={project.title} smallImg={project.small} largeImg={project.large} title={project.title} languages={project.languages}/>
                 ))}
             </div>
         </section>

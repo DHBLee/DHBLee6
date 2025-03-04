@@ -28,6 +28,7 @@
   --color-Darkgrey: hsl(0, 0%, 14%);
   --color-Grey: hsl(0, 0%, 85%);
   --color-white: hsl(0, 0%, 100%);
+  --color-red: #FF6F5B;
 
   --text-xl: 5.5rem;
   --text-l: 3rem;
@@ -128,6 +129,14 @@
     border: none;
     font-family: inherit;
     background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  .error {
+    background-image: url('./assets/images/error-warning-line.svg');
   }
 
   input:focus {
@@ -140,6 +149,10 @@
     font-family: inherit;
     line-height: 1.5;
     background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
   }
 
   textarea:focus {
