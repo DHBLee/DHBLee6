@@ -46,12 +46,13 @@ Users should be able to:
 ### Links
 
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/DHBLee/DHBLee6/tree/DHBLee/Fronend-Mentor/Single)
+- Live Site URL: [Add live site URL here](https://dhb-lee6-jzo3.vercel.app/)
 
 
 ## My process
 
+Building my Vite App.
 
 ### Built with
 
@@ -60,7 +61,8 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- SCSS
+- REACT
+- TailwindCSS
 - Mobile-first workflow
 - JS
 
@@ -69,11 +71,11 @@ Users should be able to:
 
 ### What I learned
 
-
+I learned more about React and TailwindCSS
 
 
 ### Continued development
-
+BEtter Code
 
 
 
