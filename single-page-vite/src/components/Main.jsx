@@ -67,7 +67,7 @@ const Main = ({ringsPattern, pxStyling}) => {
   return (
     <main>
         {/* need to figueer out the overflowing issue in the rings */}
-        <section className={`${pxStyling} relative border-t-2 border-b-2 md:border-b-0  py-10 md:py-0 md:pt-[52px] 1440:pt-[72px] grid gap-6 md:gap-[52px] 1440px:gap-[58px] text-center md:text-left justify-center md:justify-start grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] 1440:grid-cols-[repeat(3,1fr)]`}>
+        <section className={`${pxStyling} relative border-t-2 border-b-2 md:border-b-0  py-10 md:py-0 md:pt-[52px] 1440:pt-[72px] grid gap-6 md:gap-[52px] 1440px:gap-[58px] text-center md:text-left justify-center md:justify-start grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] 1440:grid-cols-[repeat(3,1fr)] overflow-hidden`}>
             {experiences.map(experience => (
                 <div key={experience.name} className='grid gap-[1px] md:gap-3.5'>
                     <h3 className='text-[32px] md:text-l max-md:leading-[40px]'>{experience.name}</h3>
