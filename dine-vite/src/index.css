@@ -122,19 +122,30 @@
 }
 
 
-@layer utilities {
+@layer components {
+  .section5 {
+    background-image: url('./assets/images/homepage/ready-bg-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media(min-width: 768px) {
+    .section5 {
+      background-image: url('./assets/images/homepage/ready-bg-tablet.jpg');
+    }
+  }
+  @media(min-width: 1440px) {
+    .section5 {
+      background-image: url('./assets//images/homepage/ready-bg-desktop.jpg');
+    }
+  }
+
   .headingXL {
-    @apply text
-    font-size: 80px !important;
-    line-height: 80px !important;
-    letter-spacing: -1px !important;
-    font-weight: 300;
+    @apply text-[32px] md:text-[48px] 1440:text-[80px] tracking-[-0.4px] md:tracking-[-0.6px] 1440:tracking-[1px] leading-[40px] md:leading-[64px] 1440:leading-[80px]
   }
   .headingL {
-    font-size: 48px !important;
-    line-height: 48px !important;
-    letter-spacing: -0.5px !important;
-    font-weight: 700 !important;
+    @apply text-[32px] md:text-[48px] leading-[40px] md:leading-[48px] tracking-[-0.4px] md:tracking-[0.5px] font-bold
   }
   .headingM {
     font-size: 20px !important;
