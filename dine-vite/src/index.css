@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme {
+  --color-Beaver: hsl(27, 22%, 51%);
+  --color-CodGray: hsl(0, 0%, 7%);
+  --color-Mirage: hsl(234, 30%, 13%);
+  --color-Clay: hsl(218, 21%, 18%);
+  --color-ShuttleGray: hsl(217, 14%, 42%);
+  --color-red: hsl(0, 43%, 50%);
+
+  --breakpoint-1440: 90rem;
+}
+
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    height: 100vh;
+  }
+
+  body {
+    min-height: 100vh;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "League Spartan", sans-serif;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
+  }
+
+  svg {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+
+  span,
+  h1, h2, h3, h4, h5, h6,
+  p {
+    display: inline-block;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  input {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  textarea {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    line-height: 1.5;
+    background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+}
+
+
+@layer utilities {
+  .headingXL {
+    @apply text
+    font-size: 80px !important;
+    line-height: 80px !important;
+    letter-spacing: -1px !important;
+    font-weight: 300;
+  }
+  .headingL {
+    font-size: 48px !important;
+    line-height: 48px !important;
+    letter-spacing: -0.5px !important;
+    font-weight: 700 !important;
+  }
+  .headingM {
+    font-size: 20px !important;
+    line-height: 24px !important;
+    letter-spacing: -0.25px !important;
+    font-weight: 700 !important;
+  }
+  .headingS {
+    font-size: 17px !important;
+    line-height: 28px !important;
+    letter-spacing: 2.5px !important;
+    font-weight: 600 !important;
+  }
+  .body1 {
+    font-size: 20px !important;
+    line-height: 30px !important;
+    font-weight: 400 !important;
+  }
+  .body2 {
+    font-size: 16px !important;
+    line-height: 26px !important;
+    font-weight: 400 !important;
+  }
+
+}
