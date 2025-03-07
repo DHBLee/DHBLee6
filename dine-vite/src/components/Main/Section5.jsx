@@ -3,7 +3,7 @@ import React from 'react'
 
 import Button from '../Button';
 
-const Section5 = () => {
+const Section5 = ({px}) => {
   return (
     <section className='section5'>
         <h4 className='headingL'>Ready to make a reservation?</h4>
