@@ -10,14 +10,17 @@ import patternDivide from '../../assets/images/patterns/pattern-divide.svg';
 
 const Section2 = ({px}) => {
   return (
-    <section className={`relative ${px} flex flex-col 1440:flex-row-reverse items-center justify-center 1440:justify-start gap-12 md:gap-[56px] 1440:gap-[125px] text-center 1440:text-start`}>
-        <picture>
-            <source srcSet={localImgDesktop} media="(min-width: 1440px)" />
-            
-            <source srcSet={localImgTablet} media="(min-width: 768px)" />
-            
-            <img src={localImgMobile} alt="Local background" className='relative z-10 w-full 1440:mb-[-5rem]'/>
-        </picture>
+    <section className={`relative ${px} flex flex-col 1440:flex-row-reverse items-center justify-center  gap-12 md:gap-[56px] 1440:gap-[125px] text-center 1440:text-start `}>
+        <div className='relative'>
+          <img src={patternLines} alt="" className='hidden absolute z-20 md:block right-[-5rem] top-[15rem]'/>
+          <picture>
+              <source srcSet={localImgDesktop} media="(min-width: 1440px)" />
+              
+              <source srcSet={localImgTablet} media="(min-width: 768px)" />
+              
+              <img src={localImgMobile} alt="Local background" className='relative z-10 w-full 1440:mb-[-12rem]'/>
+          </picture>
+        </div>
         <div className='grid  place-content-center 1440:place-content-start gap-9 md:gap-[39px] 1440:gap-[59px]'>
           <img src={patternDivide} alt="" className='mx-auto 1440:mx-0'/>
           <div className='grid gap-[13px] md:gap-[27px] place-content-center 1440:place-content-start'>
@@ -26,7 +29,6 @@ const Section2 = ({px}) => {
           </div>
         </div>
         <img src={patternLeft} alt="" className='hidden absolute md:block w-[50%] 1440:w-[60%] h-[40%] right-0 bottom-[-6rem]'/>
-        <img src={patternLines} alt="" className='hidden absolute z-20 md:block right-[5%] top-[15rem]'/>
     </section>
   )
 }

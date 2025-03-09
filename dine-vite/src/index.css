@@ -129,15 +129,27 @@
     background-size: cover;
     background-position: center;
   }
+  .bookingBg {
+    background-image: url('./assets/images/booking/hero-bg-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 
   @media(min-width: 768px) {
     .section5 {
       background-image: url('./assets/images/homepage/ready-bg-tablet.jpg');
     }
+    .bookingBg {
+      background-image: url('./assets/images/booking/hero-bg-tablet.jpg');
+    }
   }
   @media(min-width: 1440px) {
     .section5 {
       background-image: url('./assets//images/homepage/ready-bg-desktop.jpg');
+    }
+    .bookingBg {
+      background-image: url(./assets/images/booking/hero-bg-desktop.jpg);
     }
   }
 
@@ -157,7 +169,7 @@
     font-size: 17px !important;
     line-height: 28px !important;
     letter-spacing: 2.5px !important;
-    font-weight: 600 !important;
+    font-weight: 600;
   }
   .body1 {
     font-size: 20px !important;
@@ -169,5 +181,39 @@
     line-height: 26px !important;
     font-weight: 400 !important;
   }
+  .body3 {
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 2px;
+  }
+
+  .active-underline {
+    position: relative;
+  }
+  .active-underline::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1px;
+    width: 50%;
+    height: 2px;
+    background-color: #9e7f66;
+  }
+
+  .red-placeholder::placeholder {
+    color: red;
+    opacity: 1;
+  }
+
+  @media(min-width:1440px) {
+    .active-underline::after {
+      bottom: 1rem;
+      left: -5.2rem;
+      width: 65%;
+    }
+
+  }
+
 
 }

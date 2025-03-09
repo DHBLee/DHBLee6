@@ -1,4 +1,4 @@
-import { React, useState} from 'react'
+import { React, useState, useEffect} from 'react'
 import Button from '../Button'
 
 import familyImgMobile from '../../assets/images/homepage/family-gathering-mobile.jpg';
@@ -40,37 +40,48 @@ const information = [
   },
 ]
 const Section4 = ({px}) => {
-  const [details, setDetails] = useState(information[0])
+  const [details, setDetails] = useState(information[0]);
+  const [isVisible, setIsVisible] = useState(false);
+  const [previousDetails, setPreviousDetails] = useState(details);
+
+  useEffect(() => {
+    setIsVisible(false);
+    const timeout = setTimeout(() => {
+      setPreviousDetails(details);
+      setIsVisible(true);
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [details]);
 
   return (
-    <section className={`relative ${px} flex flex-col 1440:flex-row gap-[49px] md:gap-[57px] 1440:gap-[125px]`}>
-      <div className="relative">
-        <picture>
-                <source srcSet={details.imgDesktop} media="(min-width: 1440px)" />
+    <section className={`relative ${px} flex flex-col 1440:flex-row gap-[49px] md:gap-[57px] 1440:gap-[125px] 1440:items-center 1440:justify-center`}>
+      <div className="relative" key={previousDetails.title}>
+        <picture className="flex-1">
+                <source srcSet={previousDetails.imgDesktop} media="(min-width: 1440px)" />
                 
-                <source srcSet={details.imgTablet} media="(min-width: 768px)" />
+                <source srcSet={previousDetails.imgTablet} media="(min-width: 768px)" />
                 
-                <img src={details.imgMobile} alt="Local background" className='relative z-10 w-full 1440:mb-[-5rem]'/>
+                <img src={previousDetails.imgMobile} alt="Local background" className={`relative z-10 w-full transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0" }`}/>
         </picture>
         <img src={patternLine} alt="" className="hidden md:block absolute top-[-2rem] left-[-4rem] z-20"/>
       </div>
       <div className="flex flex-col gap-[27px] md:gap-[47px] 1440:gap-[79px] 1440:flex-col-reverse">
-        <ul className="flex flex-col md:flex-row md:justify-between 1440:flex-col items-center">
+        <ul className="flex flex-col md:flex-row md:justify-between 1440:flex-col items-center 1440:items-start">
           {information.map((item, index) => (
               <li key={item.title}>
                 <button
                   onClick={() => setDetails(information[index])}
-                  className={`headingS font-bold ${details.title === item.title ? 'text-Clay' : 'text-ShuttleGray hover:text-Clay'} `} 
+                  className={`headingS font-bold ${details.title === item.title ? 'text-Clay active-underline' : 'text-ShuttleGray hover:text-Clay'} `} 
                 >
                   {item.title.toUpperCase()}
                 </button>
               </li>
             ))}
         </ul>
-        <div className="grid gap-[27px] md:gap-[60px] text-center 1440:text-left ">
+        <div className={`grid gap-[27px] md:gap-[60px] text-center 1440:text-left transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0"}`}>
           <div className="grid gap-[13px] md:gap-[19px]">
-            <h2 className="headingL">{details.title}</h2>
-            <p className="body2 md:body1 max-w-[40ch] mx-auto">{details.details}</p>
+            <h2 className="headingL">{previousDetails.title}</h2>
+            <p className="body2 md:body1 max-w-[40ch] mx-auto">{previousDetails.details}</p>
           </div>
           <Button classStyle="border-white text-white bg-black 1440:mx-0 ">
             BOOK A TABLE

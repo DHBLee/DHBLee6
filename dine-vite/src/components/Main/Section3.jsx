@@ -15,9 +15,9 @@ import patternDivide from '../../assets/images/patterns/pattern-divide.svg';
 const hrStyle = "border-b-2 border-[#444444] pb-[54px] md:pb-[24px]"
 const Section3 = ({px}) => {
   return (
-    <section className={`${px} bg-CodGray pt-[72px] pb-[102px] md:py-[96px] 1440:pt-[200px] 1440:pb-[120px] flex flex-col 1440:flex-row gap-[85px] md:gap-[54px] 1440:gap-[125px] text-center 1440:text-left 1440:mt-[-7rem]`}>
+    <section className={`${px} bg-CodGray pt-[72px] pb-[102px] md:py-[96px] 1440:pt-[200px] 1440:pb-[120px] flex flex-col 1440:flex-row gap-[85px] md:gap-[54px] 1440:gap-[125px] text-center 1440:text-left `}>
 
-        <div className='grid gap-9 md:gap-[39px] 1440:gap-[55px] 1440:mt-[-8rem]'>
+        <div className='grid gap-9 md:gap-[39px] 1440:gap-[55px] 1440:mt-[-8rem]'> {/* need to fix the negative margin-top */}
             <img src={patternDivide} alt="" className='mx-auto md:mx-0 self-end'/>
 
             <div className='grid gap-[13px] md:gap-[27px]'>

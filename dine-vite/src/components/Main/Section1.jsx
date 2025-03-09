@@ -7,8 +7,8 @@ import patternRight from '../../assets/images/patterns/pattern-curve-top-right.s
 import patternDivide from '../../assets/images/patterns/pattern-divide.svg';
 const Section1 = ({px}) => {
   return (
-    <section className={`relative ${px} flex flex-col 1440:flex-row items-center justify-center 1440:justify-start gap-12 md:gap-[56px] 1440:gap-[125px] text-center 1440:text-start`}>
-        <picture>
+    <section className={`relative ${px} flex flex-col 1440:flex-row items-center justify-center gap-12 md:gap-[56px] 1440:gap-[125px] text-center 1440:text-start`}>
+        <picture >
             <source srcSet={enjoyableImgDesktop} media="(min-width: 1440px)" />
             
             <source srcSet={enjoyableImgTablet} media="(min-width: 768px)" />

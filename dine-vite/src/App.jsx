@@ -1,15 +1,16 @@
-import { useState } from 'react'
-import Header from './components/Header'
-import Main from './components/Main/Main'
+import { Routes, Route } from "react-router-dom";
+import HomeLayout from "./components/HomeLayout";
+import BookingPage from "./components/BookingPage";
 import Footer from './components/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <Header />
-      <Main />
+      <Routes>
+        <Route path="/" element={<HomeLayout />} />
+
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
       <Footer />
     </>
   )
