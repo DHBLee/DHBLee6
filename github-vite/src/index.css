@@ -29,6 +29,10 @@
     padding: 0;
   }
 
+  html, body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
   html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -40,6 +44,10 @@
     height: 100%;
     overflow-x: hidden;
     font-family: "Space Mono", sans-serif;
+    background-color: hsl(227, 100%, 98%);
+  }
+  body.dark {
+    background-color: hsl(220, 40%, 13%);
   }
 
   img,
@@ -78,7 +86,7 @@
 
 
   a {
-    text-decoration: none;
+
     color: inherit;
     cursor: pointer;
   }
@@ -142,6 +150,10 @@
   }
   .body2 {
     @apply text-[15px]  font-normal
+  }
+
+  .custom-filter {
+    filter: brightness(0) saturate(100%) invert(44%) sepia(9%) saturate(1234%) hue-rotate(177deg) brightness(93%) contrast(86%);
   }
 
 }
