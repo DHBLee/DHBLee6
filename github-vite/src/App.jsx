@@ -120,8 +120,8 @@ function App() {
         {isError &&  <span className='md:hidden text-[15px] font-bold text-Red'>No results</span> }
         <form onSubmit={handleSearch} className='flex justify-between items-center py-[7px] px-[5px] 1440:px-[8px] mb-[16px] 1440:mb-[24px] bg-White dark:bg-DarkGray rounded-xl'>
             <div className='flex gap-2 1440:gap-5'>
-              <img src={searchImg} alt="" className='ml-6'/>
-              <input ref={inputRef} className='dark:text-White ' type="text" placeholder='Search Github username...'/>
+              <img src={searchImg} alt="" className='md:ml-6'/>
+              <input ref={inputRef} className='dark:text-White w-[25ch] min-w-[8ch] max-sm:max-w-[20ch] ' type="text" placeholder='Search Github username...'/>
             </div>
             <div className='flex gap-[24px] items-center'>
               {isError && <span className='hidden md:block text-[15px] font-bold text-Red'>No results</span>}
@@ -181,7 +181,7 @@ function App() {
                   <li key={index} className='flex gap-3 items-center dark:text-LightGray text-Gray' style={{color: info2.value === "Not available" ? "hsl(217, 20%, 51%)" : ""}}>
                     <img src={info2.img} alt="" className={` ${info2.value === "Not available" ? "custom-filter" : "dark:invert dark:brightness-0 invert-0 brightness-100"}`}/>
                     {info2.img === websiteImg ? (
-                      <a href={info2.value !== "Not available" ? info2.value : "#"}>{info2.value}</a>
+                      <a href={info2.value !== "Not available" ? info2.value : "#"} className='hover:underline'>{info2.value}</a>
                     ) : (
                       <span>{info2.value}</span>
                     )}
