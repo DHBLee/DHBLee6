@@ -147,7 +147,7 @@
     @apply text-[16px] font-normal leading-[30px] text-BlueGray
   }
   .body2 {
-    @apply text-[15px]  font-normal leading-[30px] 
+    @apply text-[15px]  font-normal leading-[30px] text-BlueGray
   }
   .linkStyling {
     @apply text-[12px] tracking-[2px] uppercase hover:text-Cyan transition-colors duration-300 ease-in-out

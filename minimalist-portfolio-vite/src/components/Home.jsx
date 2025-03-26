@@ -18,8 +18,8 @@ const Home = ({padding}) => {
         <Picture mobileImg={heroImgMobile} tabletImg={heroImgTablet} desktopImg={heroImgDesktop}/>
         <div className='md:absolute grid gap-[32px] md:gap-[48px] md:pt-[56px] md:pr-[56px] items-start justify-start bottom-0 left-0 bg-white'>
             <h1 className='heading2 md:heading1 md:max-w-[16ch] 1440:max-w-[13ch]'>Hey, I'm Alex Spence and I love building beautiful websites</h1>
-            <button className='mr-auto flex items-center gap-9 bg-Blue'>
-              <img src={arrowDown} alt="" className='p-4 bg-[#1f3444]' />
+            <button className='group mr-auto flex items-center gap-9 bg-Blue hover:bg-Cyan'>
+              <img src={arrowDown} alt="" className='p-4 bg-[#1f3444] group-hover:bg-[#5ba293]' />
               <p className='linkStyling text-white mr-8'>about me</p>
             </button>
         </div>
@@ -30,7 +30,7 @@ const Home = ({padding}) => {
           <Picture mobileImg={profileImgMobile} tabletImg={profileImgTablet} desktopImg={profileImgDesktop}/>
         </div>
         <div className='md:w-[55%] 1440:w-[33%] my-[32px] md:my-0 border-LightGray border-b-2 border-t-2'>
-          <div className='grid gap-[28px] py-[32px] '>
+          <div className='grid gap-[28px] py-[32px]'>
             <h1 className="heading2 md:heading1">About Me</h1>
             <p className='body1 1440:max-w-[40ch]'>I’m a junior front-end developer looking for a new role in an exciting company. I focus on writing accessible HTML, using modern CSS practices and writing clean JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to whatever tools are required. I’m based in London, UK, but I’m happy working remotely and have experience in remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature whether that’s going for a walk, run or cycling. I’d love you to check out my work.</p>
             <Button route="portfolio">
