@@ -50,8 +50,8 @@ Users should be able to:
 ### Links
 
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/DHBLee/DHBLee6/tree/DHBLee/Fronend-Mentor/Minimalist/minimalist-portfolio-vite)
+- Live Site URL: [Add live site URL here](https://dhb-lee6-1jqf.vercel.app/)
 
 
 ## My process
