@@ -15,7 +15,6 @@ const Project = ({id, imgMobile, imgTablet, imgDesktop, title, description, styl
                 <Button route={`portfolio/${id}`}>
                     view project
                 </Button>
-
             </div>
         </div>
     </section>
