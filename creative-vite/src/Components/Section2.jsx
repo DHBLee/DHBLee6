@@ -19,7 +19,7 @@ const Section2 = ({padding}) => {
           "A well-crafted design strategy consistently produces desired outcomes and brand awareness. 
           We are firm believers that success lies in creative collaboration with our clients."
           </p>
-          <a href="" className="text-Red underline ">Schedule a Call</a>
+          <a href="" className="text-Red underline underline-offset-8 hover:font-extrabold hover:brightness-125 hover:decoration-2 ">Schedule a Call</a>
         </div>
     </section>
   )

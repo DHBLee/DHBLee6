@@ -1,12 +1,101 @@
-# React + Vite
+# Frontend Mentor - Creative agency single page site solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Creative agency single page site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/creative-agency-singlepage-site-Pq6V3I2RM). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Currently, two official plugins are available:
+# Frontend Mentor - Creative agency single page site solution
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a solution to the [Creative agency single page site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/creative-agency-singlepage-site-Pq6V3I2RM). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Expanding the ESLint configuration
+## Table of contents
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+
+
+
+
+## Overview
+
+
+### The challenge
+
+
+Users should be able to:
+
+
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+
+
+### Screenshot
+
+
+
+
+![](src/assets/1440px_solution.png)
+![](src/assets/375px_solution.png)
+
+
+
+
+
+
+
+
+### Links
+
+
+- Solution URL: [Add solution URL here](https://github.com/DHBLee/DHBLee6/tree/DHBLee/Fronend-Mentor/Minimalist/minimalist-portfolio-vite)
+- Live Site URL: [Add live site URL here](https://dhb-lee6-1jqf.vercel.app/)
+
+
+## My process
+HTML
+CSS
+
+### Built with
+
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- React
+- TailwindCss
+- Mobile-first workflow
+- JS
+- Framer-Motion
+
+
+
+
+### What I learned
+
+I learned more about react and framer-motion
+
+
+### Continued development
+
+Better, efficient code in the future
+
+
+### Useful resources
+
+
+- [Example resource 1](https://www.chatgpt.com) - Of Cos!
+
+
+
+
+## Author
+
+
+[@DHBLee](https://www.frontendmentor.io/profile/DHBLee)

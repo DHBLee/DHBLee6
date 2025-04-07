@@ -14,9 +14,9 @@ const Header = ({padding}) => {
         <div className="hidden md:block absolute inset-y-0 right-0 w-[56%] bg-Red -z-10"></div>
 
         <nav className='hidden md:flex items-center gap-5 md:gap-7 1440:gap-8 text-White'>
-            <a href="">About</a>
-            <a href="">Service</a>
-            <a href="">Projects</a>
+            <a href="" className="header_links">About</a>
+            <a href="" className="header_links">Service</a>
+            <a href="" className="header_links">Projects</a>
             <Button extraStyle="bg-Red md:bg-BlackBg !px-5 1440:ml-[10px]">
               Schedule a Call
             </Button>
@@ -35,9 +35,9 @@ const Header = ({padding}) => {
 
         {navIsOpen && ReactDOM.createPortal(
           <nav className="nav_text">
-            <a href="">About</a>
-            <a href="">Service</a>
-            <a href="">Projects</a>
+            <a href="" className="header_links">About</a>
+            <a href="" className="header_links">Service</a>
+            <a href="" className="header_links">Projects</a>
             <Button extraStyle="bg-Red md:bg-BlackBg">
               Schedule a Call
             </Button>
