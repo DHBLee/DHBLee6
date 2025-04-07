@@ -54,8 +54,8 @@ Users should be able to:
 ### Links
 
 
-- Solution URL: [Add solution URL here](https://github.com/DHBLee/DHBLee6/tree/DHBLee/Fronend-Mentor/Minimalist/minimalist-portfolio-vite)
-- Live Site URL: [Add live site URL here](https://dhb-lee6-1jqf.vercel.app/)
+- Solution URL: [Add solution URL here](https://github.com/DHBLee/DHBLee6/tree/DHBLee/Fronend-Mentor/Creative/creative-vite)
+- Live Site URL: [Add live site URL here](https://dhb-lee6-clv9.vercel.app/)
 
 
 ## My process
