@@ -1,0 +1,333 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Rubik';
+  src: local('Rubik'),
+  url('./assets//fonts/Rubik-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap
+}
+@font-face {
+  font-family: 'Rubik';
+  src: local('Rubik'),
+  url('./assets//fonts/Rubik-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-White: hsl(0, 100%%, 100%);
+  --color-Black: hsl(0, 0%, 0%);
+  --color-Grey500: hsl(219, 13%, 44%);
+  --color-Grey50: hsl(220, 38%, 97%);
+  --color-Blue950: hsl(214, 24%, 23%);
+  --color-Blue900: hsl(216, 25%, 25%);
+  --color-Blue850: hsl(215, 27%, 32%);
+  --color-Blue500: hsl(223, 100%, 59%);
+  --color-Blue300: hsl(216, 47%, 78%);
+  --color-Blue100: hsl(220, 50%, 95%);
+  --color-Blue50: hsl(225, 100%, 96%);
+  --color-Green500: hsl(151, 68%, 52%);
+  --color-Green100: hsl(151, 88%, 94%);
+  --color-Purple600: hsl(277, 91%, 56%);
+  --color-Purple100: hsl(278, 100%, 95%);
+  --color-Orange400: hsl(22, 100%, 60%);
+  --color-Orange50: hsl(27, 100%, 96%);
+  --color-Red: hsl(0, 82%, 63%);
+
+  --breakpoint-1440: 90rem;
+}
+
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--color-Grey50);
+    background-image: url('./assets/images/pattern-background-mobile-light.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media(min-width: 768px) {
+        background-image: url('./assets/images/pattern-background-tablet-light.svg');
+    }
+    @media(min-width: 1440px) {
+        background-image: url('./assets/images/pattern-background-desktop-light.svg');
+    }
+  }
+  html.dark, html.dark body {
+    background-color: #323e50;
+    background-image: url('./assets/images/pattern-background-mobile-dark.svg');
+
+    @media (min-width: 768px) {
+      background-image: url('./assets/images/pattern-background-tablet-dark.svg');
+    }
+    @media (min-width: 1440px) {
+      background-image: url('./assets/images/pattern-background-desktop-dark.svg');
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    height: 100vh;
+  }
+
+  body {
+    min-height: 100vh;
+    height: 100%;
+    overflow-x: hidden; 
+    font-family: 'Rubik', sans-serif;
+  }
+
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
+  }
+
+  svg {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+
+  span,
+  h1, h2, h3, h4, h5, h6,
+  p {
+    display: inline-block;
+  }
+
+
+
+  a {
+
+    color: inherit;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  input {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  textarea {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    line-height: 1.5;
+    background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+  progress {
+    width: 100%;
+    height: 1rem;
+    border-radius: 40px;
+    background: white;
+    margin: 0;
+  }
+  .dark progress {
+    background: var(--color-Blue850);
+  }
+  progress::-webkit-progress-bar {
+    background-color: transparent;
+    border-radius: 40px;
+    height: 0.6rem;
+
+
+  }
+  progress::-webkit-progress-value {
+    position: relative;
+    top:-0.02rem;
+    background: var(--color-Purple600);
+    border-radius: 40px;
+    margin: 0.2rem;
+    height: 0.6rem;
+
+  }
+
+}
+
+
+@layer components {
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 25px;
+  }
+  .switch:hover .slider.round:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+
+  .switch:hover .slider:before {
+    background-color: white;
+  }
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-Purple600);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background: var(--color-Purple600);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+    background-color: var(--color-White);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+
+  }
+  
+  .correct div {
+    border-color: var(--color-Green500) !important;
+    background-color: var(--color-Green500) !important;
+  }
+  .wrong div {
+    border-color: var(--color-Red) !important;
+    background-color: var(--color-Red) !important;
+  }
+  .correct div span, .wrong div span {
+    color: white !important;
+  }
+
+  button.correct {
+    border-color: var(--color-Green500) !important;
+  }
+  button.wrong {
+    border-color: var(--color-Red) !important;
+  }
+
+  .text-preset1 {
+    @apply text-[144px] leading-[100%]  font-medium
+  }
+  .text-preset2-light, .text-preset2-medium {
+    @apply text-[40px] md:text-[64px] leading-[100%]  
+  }
+  .text-preset2-medium, .text-preset2-mobile-medium, .text-preset5-medium {
+    font-weight: 500;
+  }
+  .text-preset2-light, .text-preset5-light {
+    font-weight: 300;
+  }
+  .text-preset3 {
+    @apply text-[20px] md:text-[36px] leading-[120%]  font-medium
+  }
+  .text-preset4 {
+    @apply text-[18px] md:text-[28px] leading-[100%]  font-medium
+  }
+  .text-preset5-medium, .text-preset5-light {
+    @apply text-[14px] md:text-[24px] leading-[150%] italic
+  }
+  .text-preset6 {
+    @apply text-[20px] leading-[150%]  italic
+  }
+
+}
