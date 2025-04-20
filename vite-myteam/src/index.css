@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-White: hsl(0, 100%%, 100%);
+  --color-MidnightGreen: hsl(186, 98%, 17%);
+  --color-DarkGreen: hsl(186, 100%, 8%);
+  --color-DeepGreen: hsl(186, 100%, 14%);
+  --color-SacramentoGreen: hsl(186, 96%, 10%);
+  --color-PoliceBlue: hsl(187, 41%, 29%);
+  --color-RaptureBlue: hsl(179, 42%, 63%);
+  --color-LightCoral: hsl(0, 87%, 73%);
+  --color-Blue300: hsl(216, 47%, 78%);
+  --color-Blue100: hsl(220, 50%, 95%);
+  --color-Blue50: hsl(225, 100%, 96%);
+  --color-Green500: hsl(151, 68%, 52%);
+  --color-Green100: hsl(151, 88%, 94%);
+  --color-Purple600: hsl(277, 91%, 56%);
+  --color-Purple100: hsl(278, 100%, 95%);
+  --color-Orange400: hsl(22, 100%, 60%);
+  --color-Orange50: hsl(27, 100%, 96%);
+  --color-Red: hsl(0, 82%, 63%);
+
+  --breakpoint-1440: 90rem;
+}
+
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    /* @media(min-width: 768px) {
+        background-image: url('./assets/images/pattern-background-tablet-light.svg');
+    }
+    @media(min-width: 1440px) {
+        background-image: url('./assets/images/pattern-background-desktop-light.svg');
+    } */
+  }
+  html.dark, html.dark body {
+    /* background-color: #323e50;
+    background-image: url('./assets/images/pattern-background-mobile-dark.svg');
+
+    @media (min-width: 768px) {
+      background-image: url('./assets/images/pattern-background-tablet-dark.svg');
+    }
+    @media (min-width: 1440px) {
+      background-image: url('./assets/images/pattern-background-desktop-dark.svg');
+    } */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    height: 100vh;
+  }
+
+  body {
+    min-height: 100vh;
+    height: 100%;
+    overflow-x: hidden; 
+    font-family: 'Livvic', sans-serif;
+  }
+
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
+  }
+
+  svg {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+
+  span,
+  h1, h2, h3, h4, h5, h6,
+  p {
+    display: inline-block;
+  }
+
+
+
+  a {
+
+    color: inherit;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  input {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  textarea {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    line-height: 1.5;
+    background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+  /* progress {
+    width: 100%;
+    height: 1rem;
+    border-radius: 40px;
+    background: white;
+    margin: 0;
+  }
+  .dark progress {
+    background: var(--color-Blue850);
+  }
+  progress::-webkit-progress-bar {
+    background-color: transparent;
+    border-radius: 40px;
+    height: 0.6rem;
+
+
+  }
+  progress::-webkit-progress-value {
+    position: relative;
+    top:-0.02rem;
+    background: var(--color-Purple600);
+    border-radius: 40px;
+    margin: 0.2rem;
+    height: 0.6rem;
+
+  } */
+
+}
+
+
+@layer components {
+
+
+  .heading2 {
+    @apply text-[40px] leading-none md:text-[64px] font-bold
+  }
+  .heading3 {
+    @apply text-[32px] 1440:text-[48px] font-bold
+  }
+  .body1 {
+    @apply text-[18px] leading-7 font-semibold
+  }
+  .body2 {
+    @apply text-[15px] leading-[25px] font-semibold
+  }
+  .heroSubtitle {
+    @apply text-[15px] leading-[25px] font-semibold 1440:text-[18px] 1440:leading-7
+  }
+
+}
