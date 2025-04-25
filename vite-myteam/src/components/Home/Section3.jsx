@@ -10,7 +10,7 @@ import bgPattern5 from '../../assets/bg-pattern-home-5.svg';
 
 const Section3 = ({padding}) => {
   return (
-    <section className={`relative ${padding} bg-DeepGreen grid items-center justify-center gap-[48px] py-[140px]`}>
+    <section className={`relative ${padding} md:px-[97px] bg-DeepGreen grid items-center justify-center gap-[48px] py-[140px]`}>
         <img src={bgPattern4} alt="" className='absolute left-0 top-0'/>
         <h3 className='heading3 text-white text-center leading-none'>Delivering real results for top companies. Some of our <span className='text-RaptureBlue'>success stories.</span></h3>
         <div className='flex flex-col 1440:flex-row gap-[48px] '>

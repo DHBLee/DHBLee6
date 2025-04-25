@@ -6,6 +6,8 @@ import navPattern from '../assets/bg-pattern-about-1-mobile-nav-1.svg';
 import { Link } from 'react-router-dom';
 import { useMenu } from '../components/MenuContext';
 import { createPortal } from 'react-dom';
+import Links from './Links';
+import ContactButton from './ContactButton';
 
 const Header = ({padding}) => {
   const { menuIsOpen, setMenuIsOpen } = useMenu();
@@ -15,11 +17,9 @@ const Header = ({padding}) => {
             <button onClick={() => setMenuIsOpen(prev => !prev)} className="relative ml-auto px-6 top-[-1rem]">
                 <img src={closeImg} alt=""/>
             </button>
-            <Link to="/">home</Link>
-            <Link to="/about">about</Link>
-            <button className="border-2 px-5 py-1 rounded-3xl">
-                <Link to="/contact">contact us</Link>
-            </button>
+            <Links />
+            <ContactButton hoverStyles="hover:bg-white hover:text-DarkGreen" />
+            
 
             <img src={navPattern} alt="" className="absolute bottom-0 right-[-7rem]"/>
         </nav>,
@@ -29,18 +29,16 @@ const Header = ({padding}) => {
   return (
     <>
     
-        <header className={`${padding} body1 text-white py-12 flex justify-between items-center bg-MidnightGreen`}>
+        <header className={`${padding} md:px-[39px] body1 text-white py-12 flex justify-between items-center bg-MidnightGreen`}>
             <div className='flex items-center gap-12'>
                 <img src={logoImg} alt="" className='w-[128px] 1440:w-[160px]' />
                 <nav className='hidden md:flex gap-10 '>
-                    <Link to="/">home</Link>
-                    <Link to="/about">about</Link>
+                    <Links />
                 </nav>
             </div>
             
-            <button className="hidden md:block border-2 px-5 py-1 rounded-3xl">
-                <Link to="/contact">contact us</Link>
-            </button>
+            <ContactButton extraStyles="hidden md:block" hoverStyles="hover:bg-white hover:text-DarkGreen" />
+
 
             <button onClick={() => setMenuIsOpen(prev => !prev)} className="md:hidden">
                     <img src={menuImg} alt="" />

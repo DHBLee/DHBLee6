@@ -7,7 +7,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import { useMenu } from './components/MenuContext';
 
-const pxStyling = "px-[24px] md:px-[39px] 1440:px-[165px]";
+const pxStyling = "px-[24px] 1440:px-[165px]";
 
 function App() {
   const location = useLocation();
