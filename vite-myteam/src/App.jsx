@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import { useMenu } from './components/MenuContext';
+import ContactSection from './components/ContactSection';
 
 const pxStyling = "px-[24px] 1440:px-[165px]";
 
@@ -20,7 +21,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Home padding={pxStyling} />} />
           <Route path="/about" element={<About padding={pxStyling} />} />
-          <Route path="/contact" element={<Contact padding={pxStyling} />} />
+          <Route path="/contact" element={<ContactSection padding={pxStyling} />} />
       </Routes>
 
       {!isContactPage && (
