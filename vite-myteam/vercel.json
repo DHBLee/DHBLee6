@@ -1,0 +1,19 @@
+{
+    "routes": [
+      {
+        "src": "/[^.]+",
+        "dest": "/",
+        "status": 200
+      },
+      {
+        "src": "/contact",
+        "dest": "/",
+        "status": 200
+      },
+      {
+        "src": "/about",
+        "dest": "/",
+        "status": 200
+      }
+    ]
+  }
