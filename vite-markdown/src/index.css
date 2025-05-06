@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-Slate1000: hsl(225, 9%, 9%);
+  --color-Slate900: hsl(216, 8%, 12%);
+  --color-Slate800: hsl(220, 7%, 18%);
+  --color-Slate700: hsl(216, 9%, 23%);
+  --color-Slate600: hsl(216, 8%, 38%);
+  --color-Slate500: hsl(213, 4%, 51%);
+  --color-Slate400: hsl(222, 9%, 78%);
+  --color-Slate300: hsl(0, 0%, 89%);
+  --color-Slate200: hsl(0, 0%, 96%);
+
+
+  --color-Gray0: hsl(0, 0%, 96%);
+
+  --color-Red: hsl(13, 75%, 58%);
+  --color-Orange: hsl(21, 86%, 67%);
+
+
+  --breakpoint-1440: 90rem;
+  --breakpoint-768: 47.5rem;
+
+}
+
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    background-color: var(--color-Black);
+    /* @media(min-width: 768px) {
+        background-image: url('./assets/images/pattern-background-tablet-light.svg');
+    }
+    @media(min-width: 1440px) {
+        background-image: url('./assets/images/pattern-background-desktop-light.svg');
+    } */
+  }
+  html.dark, html.dark body {
+    /* background-color: #323e50;
+    background-image: url('./assets/images/pattern-background-mobile-dark.svg');
+
+    @media (min-width: 768px) {
+      background-image: url('./assets/images/pattern-background-tablet-dark.svg');
+    }
+    @media (min-width: 1440px) {
+      background-image: url('./assets/images/pattern-background-desktop-dark.svg');
+    } */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    height: 100vh;
+  }
+
+  body {
+    min-height: 100vh;
+    height: 100%;
+    overflow-x: hidden; 
+    font-family: 'Outfit', sans-serif;
+  }
+
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
+  }
+
+  svg {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+
+  span,
+  h1, h2, h3, h4, h5, h6,
+  p {
+    display: inline-block;
+  }
+
+
+
+  a {
+
+    color: inherit;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  input {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  textarea {
+    font-size: inherit;
+    border: none;
+    font-family: inherit;
+    line-height: 1.5;
+    background-color: inherit;
+
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+  /* progress {
+    width: 100%;
+    height: 1rem;
+    border-radius: 40px;
+    background: white;
+    margin: 0;
+  }
+  .dark progress {
+    background: var(--color-Blue850);
+  }
+  progress::-webkit-progress-bar {
+    background-color: transparent;
+    border-radius: 40px;
+    height: 0.6rem;
+
+
+  }
+  progress::-webkit-progress-value {
+    position: relative;
+    top:-0.02rem;
+    background: var(--color-Purple600);
+    border-radius: 40px;
+    margin: 0.2rem;
+    height: 0.6rem;
+
+  } */
+
+}
+
+
+@layer components {
+
+  .Heading1, .Heading2, .Heading3, .Heading4, .Heading5, .Heading6 {
+    font-family: 'Roboto Slab', sans-serif;
+    line-height: auto;
+  }
+  .MarkdownText {
+    font-family: 'Roboto Mono', sans-serif;
+  }
+  .Preview, .PreviewBold {
+    font-family: 'Roboto Slab', sans-serif;
+  }
+
+  .Heading1 {
+    @apply text-[36px] font-bold
+  }
+  .Heading2 {
+    @apply text-[28px] font-light
+  }
+  .Heading3 {
+    @apply text-[24px] font-bold
+  }
+  .Heading4 {
+    @apply text-[20px] font-bold
+  }
+  .Heading5 {
+    @apply text-[16px] font-bold
+  }
+  .Heading6 {
+    @apply text-[14px] font-bold text-Orange
+  }
+  .HeadingS {
+    @apply text-[14px] tracking-[2px] leading-none font-[Roboto] font-normal
+  } 
+  .MarkdownText, .Preview, .PreviewBold {
+    @apply text-[14px] leading-[24px] font-normal
+  }
+  .PreviewBold {
+    @apply font-bold 
+  }
+}
