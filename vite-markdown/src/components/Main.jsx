@@ -1,26 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import Preview from './Preview.jsx';
-import showIcon from '../assets/icon-show-preview.svg';
-import hideIcon from '../assets/icon-hide-preview.svg';
 import Markdown from './Markdown.jsx';
+import EditorContext from '../context/EditorContext.jsx';
 
 const Main = () => {
-  const [isPreview, setIsPreview] = useState(true);
+  const {isPreview} = useContext(EditorContext);
 
-  const currentText = isPreview ? 'preview' : 'markdown'; 
-  const currentIcon = isPreview ?  hideIcon : showIcon;
+
+  const shouldPreviewShow = isPreview ? 'block' : 'hidden'
+  const shouldMarkdownShow = !isPreview ? 'block' : 'hidden';
 
   return (
-    <main>
-        <div className='flex justify-between items-center p-4  bg-Slate900'>
-            <h6 className="HeadingS uppercase text-Slate400">{currentText}</h6>
-            <button onClick={() => setIsPreview(prev => !prev) }>
-                <img src={currentIcon} alt="Show Icon" />
-            </button>
-        </div>
-
-        {isPreview && ( <Preview /> ) }
-        {!isPreview && ( <Markdown /> )}
+    <main className={`md:grid ${!isPreview ? 'grid-cols-2' : ''} h-screen`}>
+          <div className={`${shouldMarkdownShow}`}>
+            <Markdown styling={`px-4 ${isPreview ? 'md:px-12' : ''}  w-full  h-screen`}/>
+          </div>
+          <div className={`${shouldPreviewShow} ${!isPreview ? 'md:border-l-2 border-Slate300' : ''} md:block`}>
+            <Preview styling={`px-4 ${isPreview ? 'md:px-12' : ''}  w-full  h-screen`}/>
+          </div>
     </main>
   )
 }

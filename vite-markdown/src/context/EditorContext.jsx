@@ -1,12 +1,26 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 const EditorContext = createContext({
-
+    text: '',
+    handleInput: () => {},
+    isPreview: true
 });
 
 export function EditorContextProvider({ children }) {
-    const editorContext = {
+    const [text, setText] = useState('');
+    const [isPreview, setPreview] = useState(true);
 
+    function handleInput(event) {
+        setText(event.target.value)
+    }
+    function handlePreview() {
+        setPreview(prev => !prev);
+    }
+    const editorContext = {
+        text: text,
+        handleInput,
+        handlePreview,
+        isPreview
     };
 
 

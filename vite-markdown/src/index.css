@@ -78,7 +78,6 @@
     min-height: 100vh;
     height: 100%;
     overflow-x: hidden; 
-    font-family: 'Outfit', sans-serif;
   }
 
 
@@ -204,6 +203,9 @@
   .Preview, .PreviewBold {
     font-family: 'Roboto Slab', sans-serif;
   }
+  .HeadingS, .HeadingM {
+    font-family: 'Roboto' , sans-serif;
+  }
 
   .Heading1 {
     @apply text-[36px] font-bold
@@ -224,12 +226,16 @@
     @apply text-[14px] font-bold text-Orange
   }
   .HeadingS {
-    @apply text-[14px] tracking-[2px] leading-none font-[Roboto] font-normal
+    @apply text-[14px] tracking-[2px] leading-none  font-normal
   } 
+  .HeadingM {
+    @apply text-[15px] font-normal
+  }
   .MarkdownText, .Preview, .PreviewBold {
     @apply text-[14px] leading-[24px] font-normal
   }
   .PreviewBold {
     @apply font-bold 
   }
+
 }
