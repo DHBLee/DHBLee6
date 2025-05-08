@@ -3,14 +3,17 @@ import menuIcon from '../assets/icon-menu.svg';
 import closeIcon from '../assets/icon-close.svg';
 import deleteIcon from '../assets/icon-delete.svg';
 import saveIcon from '../assets/icon-save.svg';
+import logo from '../assets/logo.svg';
 
 const Header = ({handleSidebar, isOpen}) => {
   return (
     <header className='bg-Slate800 flex items-center justify-between'>
-        <div>
+        <div className='flex items-center gap-6'>
             <button onClick={handleSidebar} className='bg-Slate700 px-4 md:px-5 py-5 md:py-[27px]' aria-label='Menu Options'>
                 <img src={isOpen ? closeIcon : menuIcon} alt="Menu Icon" className=' w-[26px] h-[22px]'/>
             </button>
+            <img src={logo} alt="Logo Image"  className='1440:block hidden'/>
+            <hr />
         </div>
 
         <div className='flex items-center gap-5'>

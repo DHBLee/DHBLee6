@@ -16,7 +16,7 @@ const Main = () => {
             <Markdown styling={`px-4 ${isPreview ? 'md:px-12' : ''}  w-full  h-screen`}/>
           </div>
           <div className={`${shouldPreviewShow} ${!isPreview ? 'md:border-l-2 border-Slate300' : ''} md:block`}>
-            <Preview styling={`px-4 ${isPreview ? 'md:px-12' : ''}  w-full  h-screen`}/>
+            <Preview styling={`px-4 ${isPreview ? 'md:px-12 max-w-[672px] mx-auto' : ''}  w-full  h-screen`}/>
           </div>
     </main>
   )

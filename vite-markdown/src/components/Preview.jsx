@@ -1,33 +1,115 @@
 import React, { useContext } from 'react'
 import EditorContext from '../context/EditorContext'
 import Title from './UI/Title';
+import { parseBlockquotes, parseCodeBlocks, parseHeadings, parseLists, processFormatting } from '../MarkdownLogic';
 
 const Preview = ({styling}) => {
   const { text } =  useContext(EditorContext);
 
+
   const renderMarkdown = (content) => {
-  return content.split('\n').map((line, index) => {
-    if (line.startsWith('# ')) {
-      return <h1 key={index} className='Heading1'>{line.substring(3)}</h1>
-    } else if (line.startsWith('## ')) {
-      return <h2 key={index} className='Heading2'>{line.substring(3)}</h2>
-    } else if (line.startsWith('### ')) {
-      return <h3 key={index} className='Heading3'>{line.substring(3)}</h3>
-    } else if (line.startsWith('#### ')) {
-      return <h4 key={index} className='Heading4'>{line.substring(3)}</h4>
-    } else if (line.startsWith('##### ')) {
-      return <h5 key={index} className='Heading5'>{line.substring(3)}</h5>
-    } else if (line.startsWith('###### ')) {
-      return <h6 key={index} className='Heading6'>{line.substring(3)}</h6>
-    } else {
-      return <p key={index}>{line}</p>
-    }
-  })
- }
+    const parts = parseCodeBlocks(content);
+    const elements = [];
+
+    parts.forEach((part, index) => {
+      if ( index % 2 === 0) {
+        elements.push(...renderRegularMarkdown(part));
+      } else {
+        elements.push(
+          <div key={`codeblock-${index}`} className='bg-Slate200 rounded-md p-6'>
+              <pre className='MarkdownText text-Slate700 whitespace-pre-wrap'>
+                {part.trim()}
+              </pre>
+          </div>
+        )
+      }
+    })
+    return elements;
+  };
+
+  const renderRegularMarkdown = (content) => {
+  
+    const lines = content.split('\n');
+    const elements = [];
+    let currentList = null;
+    let listType = null;
+  
+    lines.forEach((line, index) => {
+      if (line.trim() === '') {
+        if (currentList) {
+          elements.push(currentList);
+          currentList = null;
+          listType = null;
+        }
+        elements.push(<br key={`br-${index}`} />);
+        return;
+      }
+
+      const heading = parseHeadings(line, index);
+      if (heading) {
+        if (currentList) elements.push(currentList);
+        elements.push(heading);
+        return;
+      }
+
+      const blockquote = parseBlockquotes(line, index);
+      if (blockquote) {
+        if (currentList) elements.push(currentList);
+        elements.push(blockquote);
+        return;
+      }
+
+      const orderedItem = parseLists.ordered(line, index);
+      if (orderedItem) {
+        if (!currentList || listType !== 'ol') {
+          if (currentList) elements.push(currentList);
+          currentList = <ol key={`ol-${index}`}>{orderedItem}</ol>;
+          listType = 'ol';
+        } else {
+          currentList = React.cloneElement(currentList, {
+            children: [...React.Children.toArray(currentList.props.children), orderedItem]
+          });
+        }
+        return;
+      }
+
+      const unorderedItem = parseLists.unordered(line, index);
+      if (unorderedItem) {
+        if (!currentList || listType !== 'ul') {
+          if (currentList) elements.push(currentList);
+          currentList = <ul key={`ul-${index}`}>{unorderedItem}</ul>;
+          listType = 'ul';
+        } else {
+          currentList = React.cloneElement(currentList, {
+            children: [...React.Children.toArray(currentList.props.children), unorderedItem]
+          });
+        }
+        return;
+      }
+
+      if (currentList) {
+        elements.push(currentList);
+        currentList = null;
+        listType = null;
+      }
+
+      elements.push(
+        <p 
+          key={index} 
+          className="Preview"
+          dangerouslySetInnerHTML={{ __html: processFormatting(line) }}
+        />
+      );
+    });
+  
+    if (currentList) elements.push(currentList);
+    return elements;
+  };
+
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col w-full'>
       <Title currentText="Preview" />
-      <div className={` ${styling}`}>
+      <div className={`flex flex-col ${styling}`}>
         {renderMarkdown(text)}
       </div>
     </div>
