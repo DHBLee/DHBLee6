@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import { EditorContextProvider } from './context/EditorContext'
 import Sidebar from './components/Sidebar'
+import ConfirmDelete from './components/UI/ConfirmDelete'
 
 function App() {
   const [toggleSidebar, setToggleSideBar] = useState(false);
@@ -16,6 +17,7 @@ function App() {
   return (
     <EditorContextProvider>
       <div className='relative'>
+        <ConfirmDelete />
         <Sidebar isOpen={toggleSidebar} />
         <div className={`transition-transform duration-300 ${toggleSidebar ? 'translate-x-[250px]' : 'translate-x-0'}`}>
           <Header isOpen={toggleSidebar} handleSidebar={handleSidebar} />

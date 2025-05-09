@@ -1,16 +1,96 @@
-import React from 'react'
+import React, { useContext, useRef, useEffect, useState } from 'react'
 import logo from '../assets/logo.svg';
+import EditorContext from '../context/EditorContext';
 
 
 const Sidebar = ({isOpen}) => {
+  const {
+    documents, 
+    addDocument, 
+    currentDocument,
+    setCurrentDocument, 
+    isAddingDocument, 
+    setIsAddingDocument 
+  } = useContext(EditorContext);
+
+  const [newDocName, setNewDocName] = useState('');
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (isAddingDocument && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isAddingDocument]);
+
+  const handleNewDocumentClick = () => {
+    setIsAddingDocument(true);
+    setNewDocName('');
+  };
+
+  const handleNameSubmit = (e) => {
+    if (e.key === 'Enter' && newDocName.trim()) {
+      addDocument(newDocName.trim());
+      setNewDocName('');
+    }
+  };
+
+  const handleBlur = () => {
+    if (newDocName.trim()) {
+      addDocument(newDocName.trim())
+    }
+    setIsAddingDocument(false);
+    setNewDocName('')
+  }
+
+  const formatDate = (dateString) => {
+    const options = { month: 'short', day: 'numeric', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  };
+
   return (
     <nav className={`${isOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 transition-transform duration-300 z-50 flex flex-col items-start gap-7 px-6 py-[27px] w-[250px] h-screen bg-Slate800`}>
         <img src={logo} alt="Logo Image" className='1440:hidden'/>
 
         <div className='grid gap-[29px] w-full'>
             <h6 className="HeadingS uppercase text-Slate600">My Documents</h6>
-            <button className='p-3 bg-Red rounded-md text-white HeadingM w-full'>+ New Document</button>
+
+            {isAddingDocument ? (
+              <input
+                ref={inputRef} 
+                type="text"
+                value={newDocName}
+                onChange={(e) => setNewDocName(e.target.value)}
+                onKeyDown={handleNameSubmit}
+                onBlur={handleBlur}
+                placeholder="Document name"
+                className='p-3 rounded-md HeadingM w-full outline-none' 
+              
+              />
+            ) : (
+              <button onClick={handleNewDocumentClick} className='p-3 bg-Red rounded-md text-white HeadingM w-full'>+ New Document</button>
+            )}
+
+            <div className="grid gap-4">
+                {documents.map((doc) => (
+                  <div
+                    key={doc.id}
+                    className={`p-3 rounded cursor-pointer transition-colors group ${currentDocument?.id === doc.id ? 'bg-Slate600' : 'hover:bg-Slate700' }`}
+                  >
+                    <div onClick={() => setCurrentDocument(doc)} className='grid gap-1'>
+                      <span className='text-white group-hover:text-Red transition-colors'>
+                        {doc.name}
+                      </span>
+                      <span className='text-xs text-Slate500'>
+                        {formatDate(doc.createdAt)}
+                      </span>
+                    </div>
+                    
+                  </div>
+                ))}
+            </div>
         </div>
+
+
     </nav>
   )
 }

@@ -12,7 +12,7 @@ const Markdown = ({styling}) => {
       <textarea value={text} name="" id="" onChange={handleInput} className={`MarkdownText ${styling}`}>
         
       </textarea>
-
+  
     </div>
   )
 }

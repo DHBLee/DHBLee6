@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import menuIcon from '../assets/icon-menu.svg';
 import closeIcon from '../assets/icon-close.svg';
 import deleteIcon from '../assets/icon-delete.svg';
 import saveIcon from '../assets/icon-save.svg';
 import logo from '../assets/logo.svg';
+import EditorContext from '../context/EditorContext';
+
 
 const Header = ({handleSidebar, isOpen}) => {
+  const {currentDocument, openDeleteModal, saveDocument} = useContext(EditorContext)
   return (
     <header className='bg-Slate800 flex items-center justify-between'>
         <div className='flex items-center gap-6'>
@@ -14,13 +17,18 @@ const Header = ({handleSidebar, isOpen}) => {
             </button>
             <img src={logo} alt="Logo Image"  className='1440:block hidden'/>
             <hr />
+            {currentDocument && 
+                <div>
+                    {currentDocument.name}
+                </div> 
+            }
         </div>
 
         <div className='flex items-center gap-5'>
-            <button aria-label='Delete Document'>
+            <button onClick={openDeleteModal} aria-label='Delete Document'>
                 <img src={deleteIcon} alt="Delete Icon" />
             </button>
-            <button className='flex items-center gap-3 p-3 bg-Red rounded-md' aria-label='Save Document'>
+            <button onClick={saveDocument} className='flex items-center gap-3 p-3 bg-Red rounded-md' aria-label='Save Document'>
                 <img src={saveIcon} alt="Save Icon" />
                 <p className='HeadingM text-white hidden md:block'>Save Changes</p>
             </button>
