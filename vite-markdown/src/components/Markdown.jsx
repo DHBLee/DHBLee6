@@ -9,7 +9,7 @@ const Markdown = ({styling}) => {
   return (
     <div className='flex flex-col'>
       <Title currentText="Markdown" />
-      <textarea value={text} name="" id="" onChange={handleInput} className={`MarkdownText ${styling}`}>
+      <textarea value={text} name="" id="" onChange={handleInput} className={`MarkdownText ${styling} text-Slate700 dark:text-Slate400`}>
         
       </textarea>
   

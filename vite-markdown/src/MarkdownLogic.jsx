@@ -4,7 +4,7 @@ export const processFormatting = (text) => {
 
     let safeText = text
     .replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(codeRegex, '<code class="MarkdownText text-Slate700">$1</code>')
+    .replace(codeRegex, '<code class="MarkdownText dark:text-white text-Slate700">$1</code>')
     .replace(linkRegex, '<a href="$2" class="underline">$1</a>');
     
     return safeText;
@@ -32,8 +32,8 @@ export const parseBlockquotes = (line, index) => {
     
     const content = line.substring(2).trim();
     return (
-      <div key={`blockquote-${index}`} className="bg-Slate200 p-6 rounded-md border-l-4 border-Red">
-        <p className="PreviewBold" 
+      <div key={`blockquote-${index}`} className="bg-Slate200 dark:bg-Slate800 p-6 rounded-md border-l-4 border-Red">
+        <p className="PreviewBold dark:text-white text-Slate700" 
           dangerouslySetInnerHTML={{ __html: processFormatting(content) }} 
         />
       </div>

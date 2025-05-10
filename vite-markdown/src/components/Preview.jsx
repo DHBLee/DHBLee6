@@ -16,8 +16,8 @@ const Preview = ({styling}) => {
         elements.push(...renderRegularMarkdown(part));
       } else {
         elements.push(
-          <div key={`codeblock-${index}`} className='bg-Slate200 rounded-md p-6'>
-              <pre className='MarkdownText text-Slate700 whitespace-pre-wrap'>
+          <div key={`codeblock-${index}`} className='bg-Slate200 dark:bg-Slate800 rounded-md p-6'>
+              <pre className='MarkdownText text-Slate700 dark:text-white whitespace-pre-wrap'>
                 {part.trim()}
               </pre>
           </div>

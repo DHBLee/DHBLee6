@@ -1,6 +1,9 @@
 import React, { useContext, useRef, useEffect, useState } from 'react'
 import logo from '../assets/logo.svg';
 import EditorContext from '../context/EditorContext';
+import lightIcon from '../assets/icon-light-mode.svg';
+import darkIcon from '../assets/icon-dark-mode.svg';
+import docIcon from '../assets/icon-document.svg';
 
 
 const Sidebar = ({isOpen}) => {
@@ -14,6 +17,28 @@ const Sidebar = ({isOpen}) => {
   } = useContext(EditorContext);
 
   const [newDocName, setNewDocName] = useState('');
+  const [theme, setTheme] = useState("");
+
+  const isDark = theme === "dark";
+
+  useEffect(() => {
+      const html = document.documentElement;
+      const body = document.body;
+      if (isDark) {
+          console.log("hello")
+          html.classList.add("dark");
+          body.classList.add("dark");
+      } else {
+          html.classList.remove("dark");
+          body.classList.remove("dark");
+      }
+  }, [theme])
+
+  const toggleTheme = () => {
+      setTheme(prev => prev === "dark" ? "" : "dark");
+  }
+
+
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -48,7 +73,7 @@ const Sidebar = ({isOpen}) => {
   };
 
   return (
-    <nav className={`${isOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 transition-transform duration-300 z-50 flex flex-col items-start gap-7 px-6 py-[27px] w-[250px] h-screen bg-Slate800`}>
+    <nav className={`${isOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 transition-transform duration-300 z-50 flex flex-col items-start gap-7 px-6 py-[27px] w-[250px] h-screen bg-Slate900 overflow-y-auto`}>
         <img src={logo} alt="Logo Image" className='1440:hidden'/>
 
         <div className='grid gap-[29px] w-full'>
@@ -72,21 +97,31 @@ const Sidebar = ({isOpen}) => {
 
             <div className="grid gap-4">
                 {documents.map((doc) => (
-                  <div
-                    key={doc.id}
-                    className={`p-3 rounded cursor-pointer transition-colors group ${currentDocument?.id === doc.id ? 'bg-Slate600' : 'hover:bg-Slate700' }`}
-                  >
-                    <div onClick={() => setCurrentDocument(doc)} className='grid gap-1'>
-                      <span className='text-white group-hover:text-Red transition-colors'>
-                        {doc.name}
-                      </span>
-                      <span className='text-xs text-Slate500'>
-                        {formatDate(doc.createdAt)}
-                      </span>
+               
+                    <div key={doc.id} onClick={() => setCurrentDocument(doc)} className=' cursor-pointer flex items-center gap-4 hover:bg-Slate500/50 transition-colors duration-300 p-2 rounded-md'>
+                      <img src={docIcon} alt="Document Icon" />
+                      <div className='grid gap-1'>
+                        <span className='BodyM text-Slate500'>
+                          {formatDate(doc.createdAt)}
+                        </span>
+                        <span className='text-white HeadingM'>
+                          {doc.name}
+                        </span>
+                      </div>
                     </div>
-                    
-                  </div>
+  
                 ))}
+            </div>
+
+            <div className='flex gap-2 items-center'>
+              <img src={darkIcon} alt="Dark Mode Icon" />
+              <button className="self-center my-auto" aria-label='Theme Toggle Button'>
+                    <label className="switch">
+                        <input type="checkbox" id="theme-toggle" onChange={toggleTheme} />
+                        <span className="slider round"></span>
+                    </label>
+              </button>
+              <img src={lightIcon} alt="Light Mode Icon" />
             </div>
         </div>
 

@@ -5,6 +5,7 @@ import deleteIcon from '../assets/icon-delete.svg';
 import saveIcon from '../assets/icon-save.svg';
 import logo from '../assets/logo.svg';
 import EditorContext from '../context/EditorContext';
+import docIcon from '../assets/icon-document.svg';
 
 
 const Header = ({handleSidebar, isOpen}) => {
@@ -18,8 +19,14 @@ const Header = ({handleSidebar, isOpen}) => {
             <img src={logo} alt="Logo Image"  className='1440:block hidden'/>
             <hr />
             {currentDocument && 
-                <div>
-                    {currentDocument.name}
+                <div className='flex gap-4 items-center'>
+                    <img src={docIcon} alt="Document Icon" />
+                    <div className='grid gap-1'>
+                        <p className="BodyM text-Slate500">Document Name</p>
+                        <h6 className="HeadingM text-white">
+                            {currentDocument.name}
+                        </h6>
+                    </div>
                 </div> 
             }
         </div>

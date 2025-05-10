@@ -9,7 +9,7 @@ const Title = ({currentText}) => {
   const currentIcon = isPreview ? hideIcon : showIcon;
 
   return (
-    <div className='flex justify-between items-center p-4  bg-Slate200 '>
+    <div className='flex justify-between items-center p-4  bg-Slate200 dark:bg-Slate900 '>
             <h6 className="HeadingS uppercase text-Slate500">{currentText}</h6>
             <button onClick={handlePreview}>
                 <img src={currentIcon} alt="Show Icon" className={currentText === 'Markdown' ? 'md:hidden' : '' }/>
