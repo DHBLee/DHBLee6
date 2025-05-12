@@ -18,7 +18,7 @@ function App() {
     <EditorContextProvider>
       <div className='relative'>
         <ConfirmDelete />
-        <Sidebar isOpen={toggleSidebar} />
+        <Sidebar isOpen={toggleSidebar} handleSidebar={handleSidebar}/>
         <div className={`transition-transform duration-300 ${toggleSidebar ? 'translate-x-[250px]' : 'translate-x-0'}`}>
           <Header isOpen={toggleSidebar} handleSidebar={handleSidebar} />
           <Main />

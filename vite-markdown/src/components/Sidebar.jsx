@@ -6,11 +6,10 @@ import darkIcon from '../assets/icon-dark-mode.svg';
 import docIcon from '../assets/icon-document.svg';
 
 
-const Sidebar = ({isOpen}) => {
+const Sidebar = ({isOpen, handleSidebar}) => {
   const {
     documents, 
     addDocument, 
-    currentDocument,
     setCurrentDocument, 
     isAddingDocument, 
     setIsAddingDocument 
@@ -52,6 +51,11 @@ const Sidebar = ({isOpen}) => {
     setNewDocName('');
   };
 
+  const handleDocumentClick = (doc) => {
+    handleSidebar()
+    setCurrentDocument(doc);
+  }
+
   const handleNameSubmit = (e) => {
     if (e.key === 'Enter' && newDocName.trim()) {
       addDocument(newDocName.trim());
@@ -88,24 +92,24 @@ const Sidebar = ({isOpen}) => {
                 onKeyDown={handleNameSubmit}
                 onBlur={handleBlur}
                 placeholder="Document name"
-                className='p-3 rounded-md HeadingM w-full outline-none' 
+                className='p-3 rounded-md text-white border-b-2 HeadingM w-full outline-none' 
               
               />
             ) : (
-              <button onClick={handleNewDocumentClick} className='p-3 bg-Red rounded-md text-white HeadingM w-full'>+ New Document</button>
+              <button onClick={handleNewDocumentClick} className='p-3 bg-Red rounded-md hover:brightness-150 transition-colors duration-300 text-white HeadingM w-full'>+ New Document</button>
             )}
 
             <div className="grid gap-4">
                 {documents.map((doc) => (
                
-                    <div key={doc.id} onClick={() => setCurrentDocument(doc)} className=' cursor-pointer flex items-center gap-4 hover:bg-Slate500/50 transition-colors duration-300 p-2 rounded-md'>
+                    <div key={doc.id} onClick={() => handleDocumentClick(doc)} className=' cursor-pointer flex items-center gap-4 hover:bg-Slate500/50 transition-colors duration-300 p-2 rounded-md'>
                       <img src={docIcon} alt="Document Icon" />
                       <div className='grid gap-1'>
                         <span className='BodyM text-Slate500'>
                           {formatDate(doc.createdAt)}
                         </span>
-                        <span className='text-white HeadingM'>
-                          {doc.name}
+                        <span className='text-white HeadingM '>
+                          {doc.name.trim()}
                         </span>
                       </div>
                     </div>

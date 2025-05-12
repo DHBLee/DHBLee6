@@ -13,6 +13,7 @@ export const ACTIONS = {
 export function editorReducer(state, action) {
     switch (action.type) {
         case ACTIONS.SET_TEXT:
+            console.log('it went here')
             return {
                 ...state,
                 text: action.payload,
@@ -33,9 +34,12 @@ export function editorReducer(state, action) {
             return { ...state, isPreview: !state.isPreview };
 
         case ACTIONS.ADD_DOCUMENT: {
+            const rawName = action.payload.trim();
+            const name = rawName.endsWith('.md') ? rawName : `${rawName}.md`;
+
             const newDocument = {
                 id: Date.now(),
-                name: action.payload.trim(),
+                name,
                 content: '# New Document\n\nStart writing here...',
                 createdAt: new Date().toISOString()
             };
@@ -55,21 +59,21 @@ export function editorReducer(state, action) {
         case ACTIONS.SAVE_DOCUMENT: {
 
             if (!state.currentDocument) return state;
-
-            const currentDoc = state.documents.find(doc => doc.id === state.currentDocument.id);
-            if (currentDoc?.content === state.text) return state;
+          
+            const newName = action.payload;
+            const originalName = state.currentDocument.name;
 
             const updatedDocument = {
                 ...state.currentDocument,
                 content: state.text,
                 updatedAt: new Date().toISOString()
             }
-            console.log(updatedDocument)
+
+            if (newName !== originalName) updatedDocument.name = newName;
 
             const updatedDocuments = state.documents.map(doc => 
                 doc.id === updatedDocument.id ? updatedDocument : doc
             );
-            console.log(updatedDocuments)
 
             localStorage.setItem('markdown-documents', JSON.stringify(updatedDocuments));
 
@@ -82,6 +86,10 @@ export function editorReducer(state, action) {
        
         case ACTIONS.DELETE_DOCUMENT: {
             const updatedDocuments = state.documents.filter(doc => doc.id !== action.payload);
+            console.log(updatedDocuments);
+            console.log(action.payload)
+            localStorage.setItem('markdown-documents', JSON.stringify(updatedDocuments));
+
             return {
                 ...state,
                 documents: updatedDocuments,

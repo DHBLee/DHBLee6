@@ -24,7 +24,7 @@ export function EditorContextProvider({ children }) {
         closeDeleteModal: () => dispatch({ type: ACTIONS.TOGGLE_DELETE_MODAL, payload: false}),
         handlePreview: () => dispatch({ type: ACTIONS.TOGGLE_PREVIEW }),
         addDocument: (name) => dispatch({ type: ACTIONS.ADD_DOCUMENT, payload: name }),
-        saveDocument: () => dispatch({ type: ACTIONS.SAVE_DOCUMENT }),
+        saveDocument: (name) => dispatch({ type: ACTIONS.SAVE_DOCUMENT, payload: name }),
         deleteDocument: (id) => dispatch({ type: ACTIONS.DELETE_DOCUMENT, payload: id }),
         setCurrentDocument: (doc) => dispatch({ type: ACTIONS.SET_CURRENT_DOCUMENT, payload: doc }),
         setIsAddingDocument: (isAdding) => dispatch({ type: ACTIONS.TOGGLE_ADDING_DOCUMENT, payload: isAdding}),
