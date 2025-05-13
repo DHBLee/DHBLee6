@@ -16,7 +16,7 @@ function App() {
 
   return (
     <EditorContextProvider>
-      <div className='relative'>
+      <div className='relative overflow-x-hidden'>
         <ConfirmDelete />
         <Sidebar isOpen={toggleSidebar} handleSidebar={handleSidebar}/>
         <div className={`transition-transform duration-300 ${toggleSidebar ? 'translate-x-[250px]' : 'translate-x-0'}`}>
